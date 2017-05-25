@@ -1,24 +1,24 @@
 package com.tm_studio.myoffice.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.tm_studio.myoffice.R;
 
-public class ExampleFragment extends Fragment{
+public class OfficeFragment extends AbstractTabFragment{
 
     private static final int LAYOUT = R.layout.fragment_example;
 
-    private View view;
-
-    public static ExampleFragment getInstance() {
+    public static OfficeFragment getInstance(Context context) {
         Bundle args = new Bundle();
-        ExampleFragment fragment = new ExampleFragment();
+        OfficeFragment fragment = new OfficeFragment();
         fragment.setArguments(args);
+        fragment.setContext(context);
+        fragment.setTitle(context.getString(R.string.tab_item_office));
 
         return fragment;
     }
@@ -30,4 +30,9 @@ public class ExampleFragment extends Fragment{
 
         return view;
     }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
 }
